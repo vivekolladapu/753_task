@@ -4,53 +4,53 @@ pipeline {
         stage('Build') {
             steps {
                 // Use a build automation tool (e.g., Maven) to build the code 
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
         stage('Unit and Integration Tests') {
             steps {
                 // Run unit tests using JUnit 
-                sh 'mvn test'
+                bat 'mvn test'
                 // Run integration tests using a tool like Selenium or JMeter
                 // Replace the placeholder commands with actual test commands
-                sh 'run_selenium_tests.sh'
-                // sh 'run_jmeter_tests.sh'
+                bat 'run_selenium_tests.bat'
+                // bat 'run_jmeter_tests.bat'
             }
         }
         stage('Code Analysis') {
             steps {
                 // Analyze the code using Jenkins Static Analysis Utilities plugin or SonarQube
                 // Replace the placeholder command with actual analysis command
-                sh 'run_code_analysis.sh'
+                bat 'run_code_analysis.bat'
             }
         }
         stage('Security Scan') {
             steps {
                 // Perform a security scan using OWASP ZAP or SonarQube with security plugins
                 // Replace the placeholder command with actual security scan command
-                sh 'run_security_scan.sh'
+                bat 'run_security_scan.bat'
             }
         }
         stage('Deploy to Staging') {
             steps {
                 // Deploy the application to a staging server using Jenkins Deploy to Container plugin or AWS CLI
                 // Replace the placeholder command with actual deployment command
-                sh 'deploy_to_staging.sh'
+                bat 'deploy_to_staging.bat'
             }
         }
         stage('Integration Tests on Staging') {
             steps {
                 // Run integration tests on the staging environment (same tools as Stage 2)
                 // Replace the placeholder commands with actual test commands
-                sh 'run_selenium_tests.sh'
-                // sh 'run_jmeter_tests.sh'
+                bat 'run_selenium_tests.bat'
+                // bat 'run_jmeter_tests.bat'
             }
         }
         stage('Deploy to Production') {
             steps {
                 // Deploy the application to a production server (same tool as Stage 5)
                 // Replace the placeholder command with actual deployment command
-                sh 'deploy_to_production.sh'
+                bat 'deploy_to_production.bat'
             }
         }
     }
