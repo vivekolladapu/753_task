@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Use a build automation tool (e.g., Maven) to build the code
+                // Use a build automation tool (e.g., Maven) to build the code 
                 sh 'mvn clean package'
             }
         }
