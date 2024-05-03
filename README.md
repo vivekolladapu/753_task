@@ -1,2 +1,2 @@
-# Sampple repo for 753 task
+# Sample repo for 753 task
 
