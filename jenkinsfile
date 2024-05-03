@@ -3,21 +3,55 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Use a build automation tool (e.g., Maven) to build the code" 
-            
+                // Build the code using Maven
+                echo "mvn cleaned package"
             }
         }
         stage('Unit and Integration Tests') {
-            steps { 
-                // Run unit tests using JUnit 
-                echo "Testing"
-                // Run integration tests using a tool like Selenium or JMeter
-                // Replace the placeholder commands with actual test commands
-              
-                // bat 'run_jmeter_tests.bat'
+            steps {
+                // Run unit tests using JUnit
+                echo "mvn cleaned package"
+                // Run integration tests using Selenium or Postman
+                // Add appropriate commands here
             }
         }
-        post {
+        stage('Code Analysis') {
+            steps {
+                // Integrate code analysis tool (e.g., SonarQube)
+                // Add appropriate commands here
+                echo "mvn cleaned package"
+            }
+        }
+        stage('Security Scan') {
+            steps {
+                // Perform security scan using OWASP ZAP or Nessus
+                // Add appropriate commands here
+                echo "mvn cleaned package"
+            }
+        }
+        stage('Deploy to Staging') {
+            steps {
+                // Deploy to staging server (e.g., AWS EC2 instance) using deployment scripts or AWS CodeDeploy
+                // Add appropriate commands here
+                echo "mvn cleaned package"
+            }
+        }
+        stage('Integration Tests on Staging') {
+            steps {
+                // Run integration tests on staging environment
+                // Add appropriate commands here
+                echo "mvn cleaned package"
+            }
+        }
+        stage('Deploy to Production') {
+            steps {
+                // Deploy to production server (e.g., AWS EC2 instance) using deployment scripts or AWS CodeDeploy
+                // Add appropriate commands here
+                echo "mvn cleaned package"
+            }
+        }
+    }
+    post {
         always {
             // Send email notification with stage status and logs as attachment
             emailext body: "${currentBuild.result}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
@@ -26,7 +60,5 @@ pipeline {
                       to: 'vivekolladapu328@gmail.com',
                       attachmentsPattern: '**/*.log' // Attach all log files
         }
-        }
-        
     }
 }
