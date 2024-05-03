@@ -17,6 +17,16 @@ pipeline {
                 // bat 'run_jmeter_tests.bat'
             }
         }
+        post {
+        always {
+            // Send email notification with stage status and logs as attachment
+            emailext body: "${currentBuild.result}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+                      recipientProviders: [[$class: 'CulpritsRecipientProvider']], 
+                      subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME}", 
+                      to: 'vivekolladapu328@gmail.com',
+                      attachmentsPattern: '**/*.log' // Attach all log files
+        }
+        }
         
     }
 }
