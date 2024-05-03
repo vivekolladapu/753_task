@@ -53,9 +53,12 @@ pipeline {
     }
     post {
         success {
-                mail to: "vivekolladapu5@gmail.com",
-                subject: "Build Success",
-                body: "The build completed successfully."
+            script {
+                emailext body: "The build completed successfully.",
+                          subject: "Build Success",
+                          to: "vivekolladapu5@gmail.com",
+                          attachmentsPattern: '**/*.log' // Attach all log files
+            }
         }
     }
 }
