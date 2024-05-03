@@ -41,7 +41,7 @@ pipeline {
                 echo "Tool: Selenium for integration tests"
             }
         }
-        stae('Deploy to Production') {
+        stage('Deploy to Production') {
             steps {
                echo "Deploy the application to a production server."
                 echo "Tool: AWS CLI for deployment to AWS EC2 instance"
