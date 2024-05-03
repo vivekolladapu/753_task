@@ -51,21 +51,13 @@ pipeline {
             }
         }
     }
-    beforeBuild {
-            // Archive log files before the build starts
-            archiveArtifacts artifacts: '**/*.log', onlyIfSuccessful: true
-        }
+   
     post {
         success {
-            script {
-                // Send email notification with attachments
-                emailext body: "The build completed successfully.",
-                          subject: "Build Success",
-                          to: "purvasha1013@gmail.com",
-                          attachmentsPattern: '**/*.log' // Attach all archived log files
-            }
+                mail to: "vivekolladapu5@gmail.com",
+                subject: "Build Success",
+                body: "The build completed successfully."
         }
-    }
 
     
 }
