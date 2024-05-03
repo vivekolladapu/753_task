@@ -57,7 +57,7 @@ pipeline {
                 emailext body: "The build completed successfully.",
                           subject: "Build Success",
                           to: "vivekolladapu5@gmail.com",
-                          attachmentsPattern: '**/*.log' // Attach all log files
+                          attachmentsPattern: '*.log' // Attach all log files
             }
         }
     }
