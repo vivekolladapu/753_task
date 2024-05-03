@@ -3,51 +3,48 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Build the code using Maven
-                echo "mvn cleaned package"
+                
+                echo "Compile and package the code."
+                echo "Tool: Maven"
             }
         }
         stage('Unit and Integration Tests') {
             steps {
-                // Run unit tests using JUnit
-                echo "mvn cleaned package"
-                // Run integration tests using Selenium or Postman
-                // Add appropriate commands here
+                
+                echo "Run unit tests and integration tests."
+                echo "JUnit for unit tests, Selenium for integration tests"
+                
             }
         }
         stage('Code Analysis') {
             steps {
-                // Integrate code analysis tool (e.g., SonarQube)
-                // Add appropriate commands here
-                echo "mvn cleaned package"
+                
+                echo "Integrate a code analysis tool to ensure code quality."
+                echo "Jenkins with SonarQube plugin for code analysis"
             }
         }
         stage('Security Scan') {
             steps {
-                // Perform security scan using OWASP ZAP or Nessus
-                // Add appropriate commands here
-                echo "mvn cleaned package"
+                echo "Perform a security scan to identify vulnerabilities."
+                echo "Tool: OWASP ZAP for security scanning"
             }
         }
         stage('Deploy to Staging') {
             steps {
-                // Deploy to staging server (e.g., AWS EC2 instance) using deployment scripts or AWS CodeDeploy
-                // Add appropriate commands here
-                echo "mvn cleaned package"
+                echo "Deploy the application to a staging server."
+                echo "Tool: AWS CLI for deployment to AWS EC2 instance"
             }
         }
         stage('Integration Tests on Staging') {
             steps {
-                // Run integration tests on staging environment
-                // Add appropriate commands here
-                echo "mvn cleaned package"
+                echo "Run integration tests on the staging environment."
+                echo "Tool: Selenium for integration tests"
             }
         }
         stage('Deploy to Production') {
             steps {
-                // Deploy to production server (e.g., AWS EC2 instance) using deployment scripts or AWS CodeDeploy
-                // Add appropriate commands here
-                echo "mvn cleaned package"
+               echo "Deploy the application to a production server."
+                echo "Tool: AWS CLI for deployment to AWS EC2 instance"
             }
         }
     }
