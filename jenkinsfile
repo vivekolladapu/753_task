@@ -58,6 +58,7 @@ pipeline {
                 subject: "Build Success",
                 body: "The build completed successfully."
         }
+    }
 
     
 }
