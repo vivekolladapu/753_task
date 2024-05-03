@@ -54,11 +54,16 @@ pipeline {
     post {
         success {
             script {
-                emailext body: "The build completed successfully.",
-                          subject: "Build Success",
-                          to: "vivekolladapu5@gmail.com",
-                          attachmentsPattern: '*.log' // Attach all log files
+                // Get the log file path
+                def logFilePath = currentBuild.rawBuild.getLogFile().toString()
+                
+                // Attach log file
+                mail to: "vivekolladapu5@gmail.com",
+                     subject: "Build Success",
+                     body: "The build completed successfully.",
+                     attachments: "${logFilePath}"
             }
         }
+    
     }
 }
