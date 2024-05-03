@@ -51,6 +51,10 @@ pipeline {
             }
         }
     }
+    beforeBuild {
+            // Archive log files before the build starts
+            archiveArtifacts artifacts: '**/*.log', onlyIfSuccessful: true
+        }
     post {
         success {
             script {
@@ -63,8 +67,5 @@ pipeline {
         }
     }
 
-    beforeAgent {
-        // Archive log files before the build starts
-        archiveArtifacts artifacts: '**/*.log', onlyIfSuccessful: true
-    }
+    
 }
