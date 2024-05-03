@@ -1,2 +1,2 @@
-# HackathonRep test 1 
-#
+# Sampple repo for 753 task
+
