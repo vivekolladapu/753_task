@@ -54,16 +54,17 @@ pipeline {
     post {
         success {
             script {
-                // Get the log file path
-                def logFilePath = currentBuild.rawBuild.getLogFile().toString()
-                
-                // Attach log file
-                mail to: "vivekolladapu5@gmail.com",
-                     subject: "Build Success",
-                     body: "The build completed successfully.",
-                     attachments: "${logFilePath}"
+                // Send email notification with attachments
+                emailext body: "The build completed successfully.",
+                          subject: "Build Success",
+                          to: "purvasha1013@gmail.com",
+                          attachmentsPattern: '**/*.log' // Attach all archived log files
             }
         }
-    
+    }
+
+    beforeAgent {
+        // Archive log files before the build starts
+        archiveArtifacts artifacts: '**/*.log', onlyIfSuccessful: true
     }
 }
