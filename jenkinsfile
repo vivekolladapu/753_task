@@ -41,7 +41,7 @@ pipeline {
                 echo "Tool: Selenium for integration tests"
             }
         }
-        stage('Deploy to Production') {
+        stae('Deploy to Production') {
             steps {
                echo "Deploy the application to a production server."
                 echo "Tool: AWS CLI for deployment to AWS EC2 instance"
@@ -58,7 +58,7 @@ pipeline {
         failure {
                 mail to: "vivekolladapu5@gmail.com",
                 subject: "Build Failed",
-                body: "The build completed successfully."
+                body: "The build is not completed."
         }
     }
 
