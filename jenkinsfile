@@ -57,7 +57,7 @@ pipeline {
             emailext body: "${currentBuild.result}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
                       recipientProviders: [[$class: 'CulpritsRecipientProvider']], 
                       subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME}", 
-                      to: 'vivekolladapu328@gmail.com',
+                      to: 'vivekolladapu5@gmail.com',
                       attachmentsPattern: '**/*.log' // Attach all log files
         }
     }
