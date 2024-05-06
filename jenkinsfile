@@ -50,17 +50,12 @@ pipeline {
     }
    
     post {
-        success {
+        always {
                 mail to: "vivekolladapu5@gmail.com",
                     subject: "Build Success",
                     body: "The build is completed."                
         }
-        failure {
-                    mail to: "vivekolladapu5@gmail.com",
-                    subject: "Build Failed",
-                    body: "The build is not completed."
-            }
-        
+       
     }
 
     
