@@ -19,7 +19,7 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 
-                echo "Integrate a code analysis tool to ensure code quality."
+                echo "Integrate a code analysis tool to ensure coe quality."
                 echo "Jenkins with SonarQube plugin for code analysis"
             }
         }
