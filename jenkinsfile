@@ -4,54 +4,54 @@ pipeline {
         stage('Build') {
             steps {
                 
-                echo "Compile and package the code."
-                echo "Tool: Maven"
+                echo "performing Compile and package of the code."
+                echo "The tool we can use is Maven"
             }
         }
         stage('Unit and Integration Tests') {
             steps {
                 
-                echo "Run unit tests and integration tests."
-                echo "JUnit for unit tests, Selenium for integration tests"
+                echo "Running unit tests and integration tests."
+                echo "The tools we can use are JUnit for unit tests and Selenium for integration tests"
                 
             }
         }
         stage('Code Analysis') {
             steps {
                 
-                echo "Integrate a code analysis tool to ensure coe quality."
-                echo "Jenkins with SonarQube plugin for code analysis"
+                echo "Analysing the code to ensure coe quality."
+                echo "The tool we can use is SonarQube plugin"
             }
         }
         stage('Security Scan') {
             steps {
-                echo "Perform a security scan to identify vulnerabilities."
-                echo "Tool: OWASP ZAP for security scanning"
+                echo "Performing security scan."
+                echo "The tool we can is OWASP ZAP"
             }
         }
         stage('Deploy to Staging') {
             steps {
-                echo "Deploy the application to a staging server."
-                echo "Tool: AWS CLI for deployment to AWS EC2 instance"
+                echo "Deploying the application to a staging server."
+                echo "The tool we can use AWS CLI for deployment to AWS EC2 instance."
             }
         }
         stage('Integration Tests on Staging') {
             steps {
-                echo "Run integration tests on the staging environment."
-                echo "Tool: Selenium for integration tests"
+                echo "Running intergration tests on the staging environment."
+                echo "The tool we can use is Selenium"
             }
         }
         stage('Deploy to Production') {
             steps {
-               echo "Deploy the application to a production server."
-                echo "Tool: AWS CLI for deployment to AWS EC2 instance"
+               echo "Deploying the application to a production server."
+                echo "The tool we can use AWS CLI for deployment to AWS EC2 instance."
             }
         }
     }
    
     post {
         always {
-               emailext attachLog: true, body: 'Your build is completed successfully and please find the attached logs.', subject: 'Build Success', to: 'vivekolladapu5@gmail.com'              
+               emailext attachLog: true, body: 'Your build is completed successfully and please find the below attached logs.', subject: 'Build Success', to: 'vivekolladapu5@gmail.com'              
         }
        
     }
